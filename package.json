@@ -21,7 +21,7 @@
   },
   "homepage": "https://github.com/sdd/redux-saga-compose#readme",
   "dependencies": {
-    "is-generator-function": "^1.0.6",
+    "is-generator-function": "^1.0.6"
   },
   "devDependencies": {
     "chai": "^4.1.0",
