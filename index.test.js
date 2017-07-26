@@ -5,7 +5,7 @@ const { call } = require('redux-saga/effects');
 const reduxSagaCompose = require('./index');
 
 describe('composeSagaMiddleware', () => {
-    
+
     it('should flow calls through the middleware stack correctly', () => {
 
         // example middleware that enriches a request with the query time
@@ -31,7 +31,7 @@ describe('composeSagaMiddleware', () => {
         const testMiddleware3 = function * (req, next) {
             const result = yield call(next, req);
 
-            yield result.map(x => ({ ...x, id: `id-${ x.responseId }` }));
+            yield result.map(x => Object.assign({}, x, { id: `id-${ x.responseId }` }));
         };
 
         // example middleware that retrieves data at the bottom of the stack
