@@ -1,0 +1,23 @@
+{
+  "name": "redux-saga-compose",
+  "version": "1.0.0",
+  "description": "Middleware composer for redux-saga sagas, in the style of koa / koa-compose",
+  "main": "index.js",
+  "scripts": {
+    "test": "mocha"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/sdd/redux-saga-compose.git"
+  },
+  "keywords": [
+    "redux-saga",
+    "compose"
+  ],
+  "author": "Scott Donnelly",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/sdd/redux-saga-compose/issues"
+  },
+  "homepage": "https://github.com/sdd/redux-saga-compose#readme"
+}
