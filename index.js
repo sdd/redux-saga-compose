@@ -1,19 +1,17 @@
-const isGeneratorFunction = require('is-generator-function');
-
-module.exports = middleware => {
+module.exports = function(middleware) {
 
     if (!Array.isArray(middleware)) {
         throw new Error('argument must be an array');
     }
 
-    for (const fn of middleware) {
-        if (!isGeneratorFunction(fn)) {
-            throw new TypeError('middleware functions must be generators');
+    middleware.forEach(function(fn) {
+        if (typeof fn !== 'function') {
+            throw new TypeError('middleware must be a function');
         }
-    }
+    });
 
     return function * (initialData, next) {
-        
+
         let prevMwIndex = -1;
 
         return yield* dispatch(initialData, 0);

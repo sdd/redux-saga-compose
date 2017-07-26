@@ -6,6 +6,30 @@ const reduxSagaCompose = require('./index');
 
 describe('composeSagaMiddleware', () => {
 
+    it('throws if arg is not an array', () => {
+
+        expect(() => {
+            reduxSagaCompose()
+        }).to.throw();
+
+        expect(() => {
+            reduxSagaCompose(function() {})
+        }).to.throw();
+
+    });
+
+    it('throws if any middleware is not a function', () => {
+
+        expect(() => {
+            reduxSagaCompose([
+                function() {},
+                function * () {},
+                'not a function!'
+            ])
+        }).to.throw();
+
+    });
+
     it('should flow calls through the middleware stack correctly', () => {
 
         // example middleware that enriches a request with the query time
