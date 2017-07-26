@@ -1,6 +1,6 @@
 {
   "name": "redux-saga-compose",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Middleware composer for redux-saga sagas, in the style of koa / koa-compose",
   "main": "index.js",
   "scripts": {
