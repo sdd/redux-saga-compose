@@ -1,4 +1,7 @@
 # redux-saga-compose
+
+[![Build Status](https://travis-ci.org/sdd/redux-saga-compose.svg?branch=master)](https://travis-ci.org/sdd/redux-saga-compose)
+
 Middleware composer for redux-saga, in the style of koa-compose
 
 ## Rationale
