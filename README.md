@@ -16,6 +16,67 @@ For example, you need to:
  
 This module allows you to compose sagas that conform to a specific middleware signature (similar to that used by koa's middleware) into a single saga (that is itself composible, should you need to go all inception-style deep).
 
-## Example
+## Middleware
+
+```javascript
+// the simplest, do nothing, pass-through middleware
+function * (request, next) {
+    return (yield call(next, request));
+}
+```
+
+```javascript
+function * (request, next) {
+
+   // do something to enrich the request on the way down the middleware stack:
+   const updatedRequest = {
+       ...request,
+       stuff: "now with added stuff"
+   };
+   
+   // pass the request down the stack:
+   const response = yield call(next, updatedRequest);
+   
+   // do something to the response on the way back up:
+   return {
+       ...response,
+       thing: "new improved response with extra thinginess!"
+   };
+}
+```
+
+## Usage
+
+```javascript
+
+// We will build a saga that listens for REQUEST_DATA actions and insert them into our middleware pipeline.
+
+import { takeLatest } from 'redux-saga';
+import reduxSagaCompose from 'redux-saga-compose';
+
+const requestPipeline = reduxSagaCompose([
+  
+  // these do things pre-request and post-response, wrapping the whole stack.
+  handleLoadingUI,
+  errorHandlerWrapper,
+  
+  // transforms the request on the way down
+  transformRequest,
+  
+  // transform the response on the way back up (so dispatch happens AFTER transform)
+  dispatchResponseAction,
+  transformResponse,
+  
+  // the u-bend at the bottom of the stack
+  makeRequest
+]);
+
+export default function * () {
+    yield* takeLatest(REQUEST_DATA, requestPipeline);
+}
+
+```
+
+## More Examples
 
 For now, check out the tests for implementation. Adding a good example to this Readme is on my todo list :-)
