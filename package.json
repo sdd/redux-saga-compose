@@ -4,7 +4,7 @@
   "description": "Middleware composer for redux-saga sagas, in the style of koa / koa-compose",
   "main": "index.js",
   "scripts": {
-    "test": "mocha"
+    "test": "mocha ./index.test.js"
   },
   "repository": {
     "type": "git",
