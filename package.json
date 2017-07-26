@@ -12,7 +12,8 @@
   },
   "keywords": [
     "redux-saga",
-    "compose"
+    "compose",
+    "middleware"
   ],
   "author": "Scott Donnelly",
   "license": "MIT",
@@ -26,6 +27,7 @@
   "devDependencies": {
     "chai": "^4.1.0",
     "lodash": "^4.0.0",
+    "mocha": "^3.4.2",
     "redux-saga": "^0.15.6"
   }
 }
