@@ -47,9 +47,8 @@ function * (request, next) {
 
 ## Usage
 
+We will build a saga that listens for REQUEST_DATA actions and inject them into our middleware pipeline.
 ```javascript
-
-// We will build a saga that listens for REQUEST_DATA actions and insert them into our middleware pipeline.
 
 import { takeLatest } from 'redux-saga';
 import reduxSagaCompose from 'redux-saga-compose';
