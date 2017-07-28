@@ -1,3 +1,4 @@
+'use strict';
 module.exports = function(middleware) {
 
     if (!Array.isArray(middleware)) {
